@@ -1,0 +1,8 @@
+for run server:
+node server.js
+or 
+nodemon server.js
+
+and in browser http://localhost:3000
+
+good luck
