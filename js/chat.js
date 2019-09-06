@@ -138,10 +138,10 @@ $(function () {
 
     //Emit a username
     send_username.click(function () {
-        //socket.emit('change_username', {username: username.val()});
         username2 = username.val();
-        username.className += "disable";
         username.prop("disabled", true);
+        // console.log(username.attr('class'));
+        // console.log(username.attr('class'));
         send_username.prop("disabled", true);
         message.prop("disabled", false);
 
@@ -170,11 +170,8 @@ $(function () {
         });
 
         socket.on('left_chat', function (username) {
-            console.log(document.getElementById(username));
-            console.log(document.getElementById(username)==null);
-            if(document.getElementById(username));{
+            if(document.getElementById(username) != null){
                 document.getElementById(username).remove();
-                console.log('yes');
             }
             /*contacts.append(
                 "<li>" +
@@ -207,7 +204,15 @@ $(function () {
         setTimeout(function () {
             $('#feedback').fadeOut('slow');
         },3000);
-    })
+    });
+
+    // check username
+    username.on('keydown',function (e) {
+        if (e.which === 32){
+            return false;
+        }
+    });
+
 
 });
 
